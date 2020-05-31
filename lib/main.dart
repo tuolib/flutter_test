@@ -7,7 +7,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Demo1',
+      initialRoute: "/",
+      //名为"/"的路由作为应用的home(首页)
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -22,9 +24,25 @@ class MyApp extends StatelessWidget {
       ),
       //注册路由表
       routes: {
-        "new_page": (context) => NewRoute(),
+//        "new_page": (context) => NewRoute(),
+        "/": (context) => MyHomePage(title: 'Flutter Demo Home Page'),
+        //注册首页路由
       },
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      onGenerateRoute: (RouteSettings settings) {
+        return MaterialPageRoute(builder: (context) {
+          String routeName = settings.name;
+          // 如果访问的路由页需要登录，但当前未登录，则直接返回登录页路由，
+          // 引导用户登录；其它情况则正常打开路由。
+          if (routeName == 'new_page') {
+//            return NewRoute(text: ModalRoute.of(context).settings.arguments);
+            return NewRoute();
+          } else if (routeName == 'tip_new') {
+            return TipRoute(text: settings.arguments);
+          }
+          return MyHomePage();
+        });
+      },
+//      home: MyHomePage(title: 'Flutter Demo Home Page1'),
     );
   }
 }
@@ -100,7 +118,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .display1,
             ),
             FlatButton(
               child: Text("open new route"),
@@ -120,6 +141,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return RouterTestRoute();
                 }));
+              },
+            ),
+            FlatButton(
+              child: Text("open new route"),
+              textColor: Colors.blue,
+              onPressed: () {
+                //导航到新路由
+                return Navigator.of(context).pushNamed(
+                    "new_page", arguments: "hi");
+              },
+            ),
+            FlatButton(
+              child: Text("open tip_new"),
+              textColor: Colors.blue,
+              onPressed: () {
+                //导航到新路由
+                return Navigator.of(context).pushNamed(
+                    "tip_new", arguments: "hi");
               },
             ),
           ],
