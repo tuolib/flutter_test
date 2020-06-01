@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'ui/pages/study/text_word.dart';
+import 'ui/pages/study/NewRoute.dart';
+import 'ui/pages/study/TipRoute.dart';
+import 'ui/pages/study/RouterTestRoute.dart';
+import 'ui/pages/study/LearnButton.dart' as LearnButtonPage;
+import 'ui/pages/study/LearnImage.dart' as LearnImagePage;
+import 'ui/pages/study/LearnIcon.dart' as LearnIconPage;
+import 'ui/pages/study/LearnRadio.dart' as LearnRadioPage;
+
 
 void main() => runApp(MyApp());
 
@@ -26,6 +35,11 @@ class MyApp extends StatelessWidget {
       routes: {
 //        "new_page": (context) => NewRoute(),
         "/": (context) => MyHomePage(title: 'Flutter Demo Home Page'),
+        'textAndWord': (context) => TextAndWord(),
+        'learnButton': (context) => LearnButtonPage.LearnButton(),
+        'LearnImage': (context) => LearnImagePage.LearnImage(),
+        'LearnIcon': (context) => LearnIconPage.LearnIcon(),
+        'LearnRadio': (context) => LearnRadioPage.LearnRadio(),
         //注册首页路由
       },
       onGenerateRoute: (RouteSettings settings) {
@@ -118,13 +132,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .display1,
+              style: Theme.of(context).textTheme.display1,
             ),
             FlatButton(
-              child: Text("open new route"),
+              child: Text("2.2 路由管理 open new route"),
               textColor: Colors.blue,
               onPressed: () {
                 //导航到新路由
@@ -134,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             FlatButton(
-              child: Text("open tip page"),
+              child: Text("2.2 路由管理 open tip page"),
               textColor: Colors.blue,
               onPressed: () {
                 //导航到新路由
@@ -144,21 +155,61 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             FlatButton(
-              child: Text("open new route"),
+              child: Text("2.2 路由管理 open new route"),
               textColor: Colors.blue,
               onPressed: () {
                 //导航到新路由
-                return Navigator.of(context).pushNamed(
-                    "new_page", arguments: "hi");
+                return Navigator.of(context)
+                    .pushNamed("new_page", arguments: "hi");
               },
             ),
             FlatButton(
-              child: Text("open tip_new"),
+              child: Text("2.2 路由管理 open tip_new"),
               textColor: Colors.blue,
               onPressed: () {
                 //导航到新路由
-                return Navigator.of(context).pushNamed(
-                    "tip_new", arguments: "hi");
+                return Navigator.of(context)
+                    .pushNamed("tip_new", arguments: "hi");
+              },
+            ),
+            FlatButton(
+              child: Text("3.3 open text_and_word"),
+              textColor: Colors.blue,
+              onPressed: () {
+                //导航到新路由
+                return Navigator.of(context).pushNamed("textAndWord");
+              },
+            ),
+            FlatButton(
+              child: Text("3.4 open learnButton"),
+              textColor: Colors.blue,
+              onPressed: () {
+                //导航到新路由
+                return Navigator.of(context).pushNamed("learnButton");
+              },
+            ),
+            FlatButton(
+              child: Text("3.5 open LearnImage"),
+              textColor: Colors.blue,
+              onPressed: () {
+                //导航到新路由
+                return Navigator.of(context).pushNamed("LearnImage");
+              },
+            ),
+            FlatButton(
+              child: Text("3.5 open LearnIcon"),
+              textColor: Colors.blue,
+              onPressed: () {
+                //导航到新路由
+                return Navigator.of(context).pushNamed("LearnIcon");
+              },
+            ),
+            FlatButton(
+              child: Text("3.6 open LearnRadio"),
+              textColor: Colors.blue,
+              onPressed: () {
+                //导航到新路由
+                return Navigator.of(context).pushNamed("LearnRadio");
               },
             ),
           ],
@@ -169,78 +220,6 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}
-
-class NewRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("New route"),
-      ),
-      body: Center(
-        child: Text("This is new route"),
-      ),
-    );
-  }
-}
-
-class TipRoute extends StatelessWidget {
-  TipRoute({
-    Key key,
-    @required this.text, // 接收一个text参数
-  }) : super(key: key);
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("提示"),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(18),
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Text(text),
-              RaisedButton(
-                onPressed: () => Navigator.pop(context, "我是返回值"),
-                child: Text("返回"),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class RouterTestRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: RaisedButton(
-        onPressed: () async {
-          // 打开`TipRoute`，并等待返回结果
-          var result = await Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return TipRoute(
-                  // 路由参数
-                  text: "我是提示xxxx",
-                );
-              },
-            ),
-          );
-          //输出`TipRoute`路由返回结果
-          print("路由返回值: $result");
-        },
-        child: Text("打开提示页"),
-      ),
     );
   }
 }
