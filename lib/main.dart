@@ -11,6 +11,7 @@ import 'page/LearnImage.dart' as LearnImagePage;
 import 'page/LearnIcon.dart' as LearnIconPage;
 import 'page/LearnRadio.dart' as LearnRadioPage;
 import 'page/LearnTextarea.dart' as LearnTextareaPage;
+
 //import 'page/LearnTextareaFocus.dart' as LearnTextareaFocusPage;
 import 'page/FormTestRoute.dart' as FormTestRoute;
 import 'page/LearnProgressIndicator.dart' as LearnProgressIndicator;
@@ -26,10 +27,15 @@ import 'page/ContainerRoute.dart' as ContainerRoute;
 import 'page/ScaffoldRoute.dart' as ScaffoldRoute;
 import 'page/ClipTestRoute.dart' as ClipTestRoute;
 import 'page/SingleChildScrollViewTestRoute.dart';
+import 'page/ListViewRoute.dart';
+import 'page/ListViewInfiniteRoute.dart';
+import 'page/GridViewRoute.dart';
+import 'page/CustomScrollViewRoute.dart';
+import 'page/ScrollListenRoute.dart';
 
-
-
-
+//import 'page/ScrollListenRouteTwo.dart';
+import 'page/WillPopScopeTestRoute.dart';
+import 'page/InheritedWidgetTestRoute.dart';
 
 
 void main() => runApp(MyApp());
@@ -69,20 +75,33 @@ class MyApp extends StatelessWidget {
         'LearnTextarea': (context) => LearnTextareaPage.LearnTextarea(),
 //        'LearnTextareaFocus': (context) => LearnTextareaFocusPage.LearnTextareaFocus(),
         'FormTestRoute': (context) => FormTestRoute.FormTestRoute(),
-        'LearnProgressIndicator': (context) => LearnProgressIndicator.LearnProgressIndicator(),
-        'LearnProgressIndicatorAnimation': (context) => LearnProgressIndicator.ProgressRoute(),
+        'LearnProgressIndicator': (context) =>
+            LearnProgressIndicator.LearnProgressIndicator(),
+        'LearnProgressIndicatorAnimation': (context) =>
+            LearnProgressIndicator.ProgressRoute(),
         'CenterColumnRoute': (context) => CenterColumnRoute.CenterColumnRoute(),
-        'FlexLayoutTestRoute': (context) => FlexLayoutTestRoute.FlexLayoutTestRoute(),
+        'FlexLayoutTestRoute': (context) =>
+            FlexLayoutTestRoute.FlexLayoutTestRoute(),
         'StackLayoutRoute': (context) => StackLayoutRoute.StackLayoutRoute(),
         'AlignLayoutRoute': (context) => AlignLayoutRoute.AlignLayoutRoute(),
         'PaddingTestRoute': (context) => PaddingTestRoute.PaddingTestRoute(),
-        'ConstrainedBoxRoute': (context) => ConstrainedBoxRoute.ConstrainedBoxRoute(),
+        'ConstrainedBoxRoute': (context) =>
+            ConstrainedBoxRoute.ConstrainedBoxRoute(),
         'DecoratedBoxRoute': (context) => DecoratedBoxRoute.DecoratedBoxRoute(),
         'TransformRoute': (context) => TransformRoute.TransformRoute(),
         'ContainerRoute': (context) => ContainerRoute.ContainerRoute(),
         'ScaffoldRoute': (context) => ScaffoldRoute.ScaffoldRoute(),
         'ClipTestRoute': (context) => ClipTestRoute.ClipTestRoute(),
-        "SingleChildScrollViewTestRoute": (context) => SingleChildScrollViewTestRoute(),
+        "SingleChildScrollViewTestRoute": (context) =>
+            SingleChildScrollViewTestRoute(),
+        'ListViewRoute': (context) => ListViewRoute(),
+        "ListViewInfiniteRoute": (context) => ListViewInfiniteRoute(),
+        'GridViewRoute': (context) => GridViewRoute(),
+        'CustomScrollViewRoute': (context) => CustomScrollViewRoute(),
+        'ScrollListenRoute': (context) => ScrollListenRoute(),
+//        'ScrollListenRouteTwo': (context) => ScrollNotificationTestRoute(),
+        'WillPopScopeTestRoute': (context) => WillPopScopeTestRoute(),
+        'InheritedWidgetTestRoute': (context) => InheritedWidgetTestRoute(),
       },
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(builder: (context) {
@@ -123,8 +142,8 @@ class MyApp extends StatelessWidget {
   TODO 3.7：输入框和表单
   TODO 3.8：进度指示器
   TODO 4.2：线性布局（Row、Column）
-  TODO 4.3：弹性布局（Flex）
 2020.06.02 Tuesday
+  TODO 4.3：弹性布局（Flex）
   TODO 4.4：流式布局（Wrap、Flow）
   TODO 4.5：层叠布局（Stack、Positioned）
   TODO 4.6：对齐与相对定位（Align）
@@ -133,6 +152,13 @@ class MyApp extends StatelessWidget {
   TODO 5.3：装饰容器（DecoratedBox）
   TODO 5.4：变换（Transform）
   TODO 5.5：Container容器
+  TODO 5.6 Scaffold、TabBar、底部导航
+  TODO 5.7 剪裁（Clip）
+  TODO 6.2 SingleChildScrollView
+  TODO 6.3 ListView
+  TODO 6.3 ListViewInfinite
+  TODO 6.4 GridViewRoute
+  TODO 6.5 CustomScrollView
+  TODO 6.6 滚动监听及控制
 
  */
-
