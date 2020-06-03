@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './CustomerPageRoute.dart';
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -188,7 +190,8 @@ class _MyHomePageState extends State<MyHomePage> {
             textColor: Colors.blue,
             onPressed: () {
               //导航到新路由
-              return Navigator.of(context).pushNamed("LearnProgressIndicatorAnimation");
+              return Navigator.of(context)
+                  .pushNamed("LearnProgressIndicatorAnimation");
             },
           ),
           FlatButton(
@@ -276,7 +279,8 @@ class _MyHomePageState extends State<MyHomePage> {
             textColor: Colors.blue,
             onPressed: () {
               //导航到新路由
-              return Navigator.of(context).pushNamed("SingleChildScrollViewTestRoute");
+              return Navigator.of(context)
+                  .pushNamed("SingleChildScrollViewTestRoute");
             },
           ),
           FlatButton(
@@ -340,17 +344,154 @@ class _MyHomePageState extends State<MyHomePage> {
             textColor: Colors.blue,
             onPressed: () {
               //导航到新路由
-              return Navigator.of(context).pushNamed("InheritedWidgetTestRoute");
+              return Navigator.of(context)
+                  .pushNamed("InheritedWidgetTestRoute");
             },
           ),
-
-
-
-
-
-
-
-
+          FlatButton(
+            child: Text("7.3 跨组件状态共享（Provider）"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("ProviderRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("7.4：颜色和主题（Theme）"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("ThemeTestRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("7.6：对话框详解"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("DialogTestRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("8.1：原始指针事件处理"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("ListenerTestRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("8.2：手势识别"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context)
+                  .pushNamed("GestureDetectorTestRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("8.2：手势识别2"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context)
+                  .pushNamed("GestureDetectorTestRoute2");
+            },
+          ),
+          FlatButton(
+            child: Text("8.2：手势识别3单一方向拖动"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context)
+                  .pushNamed("GestureDetectorTestRoute3");
+            },
+          ),
+          FlatButton(
+            child: Text("8.2：手势识别4"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context)
+                  .pushNamed("GestureDetectorTestRoute4");
+            },
+          ),
+          FlatButton(
+            child: Text("8.4：通知(Notification)"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("NotificationRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("9.2 动画基本结构及状态监听"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("ScaleAnimationRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("9.2 动画基本结构及状态监听 2"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("ScaleAnimationRoute2");
+            },
+          ),
+          FlatButton(
+            child: Text("9.2 动画基本结构及状态监听 3"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("ScaleAnimationRoute3");
+            },
+          ),
+          FlatButton(
+            child: Text("9.3 自定义路由切换动画"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+//              return PageRouteBuilder(
+//                pageBuilder: (_, __, ___) => CustomerPageRoute(),
+//                transitionsBuilder: (_, anim, __, child) {
+//                  return FadeTransition(opacity: anim, child: child);
+//                },
+//              );
+              return Navigator.push(
+                context,
+                PageRouteBuilder(
+                  transitionDuration: Duration(milliseconds: 500), //动画时间为500毫秒
+                  pageBuilder: (BuildContext context, Animation animation,
+                      Animation secondaryAnimation) {
+                    return new FadeTransition(
+                      //使用渐隐渐入过渡,
+                      opacity: animation,
+                      child: CustomerPageRoute(), //路由B
+                    );
+                  },
+                ),
+              );
+//              return Navigator.of(context).pushNamed("CustomerPageRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("9.4 Hero动画"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("HeroAnimationRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("9.5 交织动画"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("StaggerRoute");
+            },
+          ),
 
         ],
       ),
