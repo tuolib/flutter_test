@@ -46,14 +46,35 @@ import 'page/GestureDetectorTestRoute3.dart';
 import 'page/GestureDetectorTestRoute4.dart';
 import 'page/NotificationRoute.dart';
 import 'page/ScaleAnimationRoute.dart';
+
 //import 'page/ScaleAnimationRoute2.dart';
 import 'page/CustomerPageRoute.dart';
 import 'page/HeroAnimationRoute.dart';
 import 'page/StaggerRoute.dart';
+import 'page/AnimateWidgetsTest.dart';
+import 'page/GradientButtonRoute.dart';
+import 'page/TurnBoxRoute.dart';
+import 'page/CustomPaintRoute.dart';
+import 'page/GradientCircularProgressRoute.dart';
+import 'page/FileOperationRoute.dart';
+import 'page/HttpTestRoute.dart';
+import 'page/FutureBuilderRoute.dart';
+import 'page/WebSocketRoute.dart';
 
+//import 'package:camera/camera.dart';
+//import 'common.dart';
+import 'page/PlatformViewRoute.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() => runApp(MyApp());
+void main() {
+//  Doctor doctor = Doctor("Harish Chandra", 54, 'child');
+//  print(doctor.name);
+//  print(doctor.age);
+//  doctor.about();
+  runApp(MyApp());
+//  cameras = await availableCameras();
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -61,7 +82,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo1',
-      initialRoute: "/",
+      locale: const Locale('en', 'US'),
+      localizationsDelegates: [
+        // 本地化的代理类
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', 'US'), // 美国英语
+        const Locale('zh', 'CN'), // 中文简体
+        //其它Locales
+      ],
       //名为"/"的路由作为应用的home(首页)
       theme: ThemeData(
         // This is the theme of your application.
@@ -75,6 +106,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+
+      initialRoute: "/",
       //注册路由表
       routes: {
 //        "new_page": (context) => NewRoute(),
@@ -132,7 +165,19 @@ class MyApp extends StatelessWidget {
         'CustomerPageRoute': (context) => CustomerPageRoute(),
         'HeroAnimationRoute': (context) => HeroAnimationRoute(),
         'StaggerRoute': (context) => StaggerRoute(),
-
+        'AnimatedSwitcherCounterRoute': (context) =>
+            AnimatedSwitcherCounterRoute(),
+        'AnimatedWidgetsTest': (context) => AnimatedWidgetsTest(),
+        'GradientButtonRoute': (context) => GradientButtonRoute(),
+        'TurnBoxRoute': (context) => TurnBoxRoute(),
+        'CustomPaintRoute': (context) => CustomPaintRoute(),
+        'GradientCircularProgressRoute': (context) =>
+            GradientCircularProgressRoute(),
+        'FileOperationRoute': (context) => FileOperationRoute(),
+        'HttpTestRoute': (context) => HttpTestRoute(),
+        'FutureBuilderRoute': (context) => FutureBuilderRoute(),
+        'WebSocketRoute': (context) => WebSocketRoute(),
+        'PlatformViewRoute': (context) => PlatformViewRoute(),
 
       },
       onGenerateRoute: (RouteSettings settings) {
@@ -158,11 +203,11 @@ class MyApp extends StatelessWidget {
 计划
 学习记录：
 2020.05.27 Thursday
-  TODO 搭建环境 2.1：计数器示例, 2.2：路由管理
+  TODO 搭建windows开发环境 2.1：计数器示例, 2.2：路由管理
 2020.05.28 Friday
-  TODO 2.1：计数器示例, 2.2：路由管理
+  TODO 搭建mac开发环境, 2.1：计数器示例, 2.2：路由管理
 2020.05.29 Saturday
-  TODO 2.1：计数器示例, 2.2：路由管理
+  TODO 搭建mac开发环境, 2.1：计数器示例, 2.2：路由管理
 2020.05.30 Sunday
   TODO 搭建mac开发环境, 2.2：路由管理
 2020.06.01 Monday
@@ -210,13 +255,13 @@ class MyApp extends StatelessWidget {
   TODO 9.4 Hero动画
   TODO 9.5：交织动画
   TODO 9.6：通用“动画切换”组件（Animated
+
+2020.06.04 Thursday
   TODO 9.7：动画过渡组件
   TODO 10.1：自定义组件方法简介
   TODO 10.2：组合现有组件
   TODO 10.3：组合实例：TurnBox
   TODO 10.4：自绘组件（CustomPaint与Canva
-
-2020.06.04 Thursday
   TODO 10.5：自绘实例：圆形渐变进度条(自
   TODO 11.1：文件操作
   TODO 11.2：Http请求-HttpClient

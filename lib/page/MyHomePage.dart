@@ -492,6 +492,99 @@ class _MyHomePageState extends State<MyHomePage> {
               return Navigator.of(context).pushNamed("StaggerRoute");
             },
           ),
+          FlatButton(
+            child: Text("9.5 交织动画2"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("AnimatedSwitcherCounterRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("9.7.2 Flutter预置的动画过渡组件"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("AnimatedWidgetsTest");
+            },
+          ),
+          FlatButton(
+            child: Text("10.2 组合现有组件"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("GradientButtonRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("10.3 组合实例：TurnBox"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("TurnBoxRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("10.4 自绘组件 （CustomPaint与Canvas）"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("CustomPaintRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("10.5 自绘实例：圆形背景渐变进度条"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("GradientCircularProgressRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("11.1 文件操作"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("FileOperationRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("11.2 通过HttpClient发起HTTP请求"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("HttpTestRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("11.3：Http请求-Dio package"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("FutureBuilderRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("11.5：使用WebSockets"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("WebSocketRoute");
+            },
+          ),
+          FlatButton(
+            child: Text("12.6：PlatformView"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("PlatformViewRoute");
+            },
+          ),
+
+
+
+
+
 
         ],
       ),
