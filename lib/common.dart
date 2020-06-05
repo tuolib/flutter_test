@@ -1,3 +1,3 @@
-//import 'package:camera/camera.dart';
-//
-//List<CameraDescription> cameras;
+import 'package:camera/camera.dart';
+
+List<CameraDescription> cameras;

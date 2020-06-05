@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'page/MyHomePage.dart';
@@ -61,25 +63,40 @@ import 'page/HttpTestRoute.dart';
 import 'page/FutureBuilderRoute.dart';
 import 'page/WebSocketRoute.dart';
 
-//import 'package:camera/camera.dart';
-//import 'common.dart';
+import 'package:camera/camera.dart';
+import 'common.dart';
 import 'page/PlatformViewRoute.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() {
+import 'l10n/localization_intl.dart';
+
+import 'page/CameraTestRoute.dart';
+
+void main() async {
 //  Doctor doctor = Doctor("Harish Chandra", 54, 'child');
 //  print(doctor.name);
 //  print(doctor.age);
 //  doctor.about();
   runApp(MyApp());
-//  cameras = await availableCameras();
+  cameras = await availableCameras();
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    MaterialApp(
+      onGenerateTitle: (context) {
+        return DemoLocalizations.of(context).title;
+      },
+      localizationsDelegates: [
+        // 本地化的代理类
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        DemoLocalizationsDelegate()
+      ],
+    );
     return MaterialApp(
       title: 'Flutter Demo1',
       locale: const Locale('en', 'US'),
@@ -87,7 +104,34 @@ class MyApp extends StatelessWidget {
         // 本地化的代理类
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        DemoLocalizationsDelegate()
       ],
+//      localeListResolutionCallback:
+//          (List<Locale> locales, Iterable<Locale> supportedLocales) {
+//        // 判断当前locale是否为英语系国家，如果是直接返回Locale('en', 'US')
+//        print(locales);
+//        final enList = [
+//          'en',
+//          'en_AU',
+//          'en_BZ',
+//          'en_CA',
+//          'en_CB',
+//          'en_IE',
+//          'en_JM',
+//          'en_NZ',
+//          'en_PH',
+//          'en_ZA',
+//          'en_TT',
+//          'en_GB',
+//          'en_US',
+//          'en_ZW',
+//        ]
+//        if (enList.contains(locales)) {
+//          return Locale('en', 'US');
+//        } else {
+//          return locales;
+//        }
+//      },
       supportedLocales: [
         const Locale('en', 'US'), // 美国英语
         const Locale('zh', 'CN'), // 中文简体
@@ -112,7 +156,7 @@ class MyApp extends StatelessWidget {
       routes: {
 //        "new_page": (context) => NewRoute(),
         //注册首页路由
-        "/": (context) => MyHomePage(title: 'Flutter Demo Home Page'),
+        "/": (context) => MyHomePage(title: DemoLocalizations.of(context).title),
         'NewRoute': (context) => NewRoute(),
         'RouterTestRoute': (context) => RouterTestRoute(),
         'textAndWord': (context) => TextAndWord(),
@@ -178,7 +222,7 @@ class MyApp extends StatelessWidget {
         'FutureBuilderRoute': (context) => FutureBuilderRoute(),
         'WebSocketRoute': (context) => WebSocketRoute(),
         'PlatformViewRoute': (context) => PlatformViewRoute(),
-
+        'CameraExampleHome': (context) => CameraExampleHome(),
       },
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(builder: (context) {
@@ -276,12 +320,12 @@ class MyApp extends StatelessWidget {
   TODO 12.4：插件开发：实现Android端API
   TODO 12.5：插件开发：实现IOS端API
   TODO 12.6：Texture和PlatformView
+
+2020.06.05 Friday
   TODO 13.1：让App支持多语言
   TODO 13.2：实现Localizations
   TODO 13.3：使用Intl包
   TODO 13.4：国际化常见问题
-
-2020.06.05 Friday
   TODO 14.1：Flutter UI系统
   TODO 14.2：Element和BuildContext
   TODO 14.3：RenderObject与RenderBox

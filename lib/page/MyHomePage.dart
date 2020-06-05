@@ -580,6 +580,15 @@ class _MyHomePageState extends State<MyHomePage> {
               return Navigator.of(context).pushNamed("PlatformViewRoute");
             },
           ),
+          FlatButton(
+            child: Text("12.6：CameraExampleHome"),
+            textColor: Colors.blue,
+            onPressed: () {
+              //导航到新路由
+              return Navigator.of(context).pushNamed("CameraExampleHome");
+            },
+          ),
+
 
 
 
