@@ -35,7 +35,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.16.0
-  camera: ^0.5.8+2
+  camera: ^0.5.2+2
 
 dev_dependencies:
   flutter_test:
